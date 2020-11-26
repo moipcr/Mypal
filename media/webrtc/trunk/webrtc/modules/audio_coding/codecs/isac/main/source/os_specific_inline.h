@@ -17,7 +17,7 @@
 
 #if defined(WEBRTC_POSIX)
 #define WebRtcIsac_lrint lrint
-#elif (defined(WEBRTC_ARCH_X86) && defined(WIN32))
+/*#elif (defined(WEBRTC_ARCH_X86) && defined(WIN32))
 static __inline long int WebRtcIsac_lrint(double x_dbl) {
   long int x_int;
 
@@ -27,7 +27,7 @@ static __inline long int WebRtcIsac_lrint(double x_dbl) {
   };
 
   return x_int;
-}
+}*/
 #else // Do a slow but correct implementation of lrint
 
 static __inline long int WebRtcIsac_lrint(double x_dbl) {
