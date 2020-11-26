@@ -732,7 +732,7 @@ NON_IDL_EVENT(open,
               EventNameType_None,
               eBasicEventClass)
 
-NON_IDL_EVENT(dataavailable,
+/*NON_IDL_EVENT(dataavailable,
               eMediaRecorderDataAvailable,
               EventNameType_None,
               eBasicEventClass)
@@ -745,7 +745,7 @@ NON_IDL_EVENT(stop,
 NON_IDL_EVENT(warning,
               eMediaRecorderWarning,
               EventNameType_None,
-              eBasicEventClass)
+              eBasicEventClass)*/
 
 NON_IDL_EVENT(speakerforcedchange,
               eSpeakerForcedChange,
