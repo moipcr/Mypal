@@ -775,7 +775,7 @@ ProtectPages(void* p, size_t size)
 #if defined(XP_WIN)
     DWORD oldProtect;
     if (!VirtualProtect(p, size, PAGE_NOACCESS, &oldProtect)) {
-        MOZ_CRASH_UNSAFE_PRINTF("VirtualProtect(PAGE_NOACCESS) failed! Error code: %u",
+        MOZ_CRASH_UNSAFE_PRINTF("VirtualProtect(PAGE_NOACCESS) failed! Error code: %lu",
                                 GetLastError());
     }
     MOZ_ASSERT(oldProtect == PAGE_READWRITE);
@@ -794,7 +794,7 @@ MakePagesReadOnly(void* p, size_t size)
 #if defined(XP_WIN)
     DWORD oldProtect;
     if (!VirtualProtect(p, size, PAGE_READONLY, &oldProtect)) {
-        MOZ_CRASH_UNSAFE_PRINTF("VirtualProtect(PAGE_READONLY) failed! Error code: %u",
+        MOZ_CRASH_UNSAFE_PRINTF("VirtualProtect(PAGE_READONLY) failed! Error code: %lu",
                                 GetLastError());
     }
     MOZ_ASSERT(oldProtect == PAGE_READWRITE);
@@ -813,7 +813,7 @@ UnprotectPages(void* p, size_t size)
 #if defined(XP_WIN)
     DWORD oldProtect;
     if (!VirtualProtect(p, size, PAGE_READWRITE, &oldProtect)) {
-        MOZ_CRASH_UNSAFE_PRINTF("VirtualProtect(PAGE_READWRITE) failed! Error code: %u",
+        MOZ_CRASH_UNSAFE_PRINTF("VirtualProtect(PAGE_READWRITE) failed! Error code: %lu",
                                 GetLastError());
     }
     MOZ_ASSERT(oldProtect == PAGE_NOACCESS || oldProtect == PAGE_READONLY);

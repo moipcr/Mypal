@@ -6,7 +6,9 @@
 
 #include "base/object_watcher.h"
 
+#include "base/atomicops.h"
 #include "base/logging.h"
+
 
 namespace base {
 
@@ -93,7 +95,7 @@ bool ObjectWatcher::StopWatching() {
   // Make sure that we see any mutation to did_signal.  This should be a no-op
   // since we expect that UnregisterWaitEx resulted in a memory barrier, but
   // just to be sure, we're going to be explicit.
-  MemoryBarrier();
+  base::subtle::MemoryBarrier2();
 
   // If the watch has been posted, then we need to make sure it knows not to do
   // anything once it is run.
